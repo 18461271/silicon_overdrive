@@ -6,13 +6,14 @@ def find_missing(input_list:List, range_max=20):
     """This function will return the missing numbers(in string format) 
     by comparing the input_list with the range list 
   """
+    
     missing = sorted([x for x in range(range_max+1) if x not in input_list])
 
     subtract = [missing[i]-missing[i-1] for i in range(1,len(missing))]
     # get the indices where the difference between adjacent numbers is great than 1
     indices = [i + 1 for i, x in enumerate(subtract) if x !=1]
 
-    # split the list, each sublist missing[i:j]  has numbers increasing by 1
+    # split the list, each sublist missing[i:j]  has element increasing by 1
 
     result_str=[]
     for i, j in zip([0] + indices, indices + [None]):
@@ -25,6 +26,6 @@ def find_missing(input_list:List, range_max=20):
 
     return result_str
 
-input_list= [1,10,20,80,-100]
+input_list= [13, 1, 2, 12, 8 , 0, -100] 
 example = find_missing(input_list )
 print(example)
