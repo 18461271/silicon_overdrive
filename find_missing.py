@@ -4,7 +4,7 @@ from typing import List
 
 
 def find_missing(input_list:List, range_max=20):
-    """This function will return the string 
+    """This function will return a string 
     format of missing numbers from a range 
   """
     missing = sorted([x for x in range(range_max+1) if x not in input_list])
